@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff5f5;
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    text-align: center;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+}

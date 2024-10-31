@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    padding-right: 44px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #28a745;
+}
+
+label {
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    margin-top: 10px;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#image-preview {
+    display: flex; /* جعل الصور تظهر بجانب بعضها */
+    flex-wrap: wrap; /* لف الصور إذا كانت كثيرة */
+}
+
+#image-preview img {
+    width: 100px; /* تعيين عرض الصورة */
+    margin: 5px; /* إضافة مسافة بين الصور */
+    border: 1px solid #ced4da; /* إضافة إطار للصورة */
+    border-radius: 4px; /* إضافة زوايا منحنية */
+}
+
+/* استعلامات الوسائط لتصميم مستجيب */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 20px;
+    }
+
+    #map {
+        height: 300px; /* تقليل ارتفاع الخريطة على الأجهزة الصغيرة */
+    }
+}

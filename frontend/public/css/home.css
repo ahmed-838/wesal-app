@@ -1,0 +1,132 @@
+/* إعدادات عامة */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* إعدادات الحاوية */
+.container {
+    flex: 1;
+    padding: 0 15px; /* إضافة padding لتحسين المظهر على الشاشات الصغيرة */
+}
+
+/* تصميم الـ Navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* تصميم البطاقات */
+.card {
+    transition: transform 0.2s;
+    margin-bottom: 15px; /* إضافة مساحة بين البطاقات */
+    
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+/* تصميم الـ Footer */
+footer {
+    font-size: 0.9em;
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+/* تحكم بالاستجابة */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2em;
+    }
+}
+
+/* تصميم صورة الخلفية */
+.hero-image {
+    position: relative;
+    height: 100vh; /* أو ارتفاع مخصص حسب الحاجة */
+    overflow: hidden; /* لمنع أي محتوى من الخروج */
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يجعل الصورة تملأ العنصر */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* ضع الصورة في الخلفية */
+}
+
+.overlay {
+    position: relative; /* لجعل النص فوق الصورة */
+    z-index: 2; /* تأكد من أن النص فوق الصورة */
+    color: #fff; /* لون النص */
+    text-align: center; /* مركز النص */
+}
+
+/* تصميم صندوق البحث */
+.search-box {
+    margin-top: 20px; /* لتفريق النص عن صندوق البحث */
+    width: 100%;
+}
+
+/* نص وحواف قابلة للاستجابة */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 1.8em;
+    }
+    .search-box {
+        width: 80%;
+    }
+
+    .card {
+        margin-bottom: 10px; /* تقليل المساحة بين البطاقات على الشاشات الصغيرة */
+    }
+}
+
+/* تصميم صفحة التسجيل */
+#auth {
+    height: 75vh; /* جعل صفحة التسجيل تأخذ 100% من الارتفاع */
+    display: flex;
+    align-items: center; /* توسيط المحتوى عمودياً */
+    justify-content: center; /* توسيط المحتوى أفقياً */
+}
+
+.navbar-brand {
+    /* يمكنك إضافة أنماط إضافية هنا إذا رغبت */
+    margin-left: 20px; /* مثال لإضافة مسافة بين الزر وبقية العناصر */
+}
+
+
+#manage-apartments {
+    display: inline-block; /* يظهر الزر في السطر */
+    margin-left: auto; /* يحافظ على المسافة بينه وبين العناصر الأخرى */
+}
+
+/* تأكد من أن الزر يتناسب مع تخطيط الـ Navbar */
+@media (max-width: 768px) {
+    #manage-apartments {
+        margin-top: 10px; /* يوفر مسافة إضافية في الشاشة الصغيرة */
+        text-align: center; /* لضمان تمركز النص */
+    }
+}

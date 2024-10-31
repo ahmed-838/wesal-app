@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شقة للإيجار</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/rental.css"> 
+</head>
+<body>
+
+<div>
+    <div class="row">
+        <!-- بطاقة الخريطة -->
+        <div class="map-container">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">الخريطة</h5>
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details-container">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">تفاصيل الشقة</h5>
+                    <div id="details">اختر شقة من الخريطة لعرض التفاصيل هنا.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/rental.js"></script> 
+</body>
+</html>

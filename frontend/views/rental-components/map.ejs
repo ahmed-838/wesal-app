@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شقة للإيجار</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="rental.css">
+</head>
+<body>
+
+<div class="container my-4">
+    <div class="row">
+        <!-- بطاقة الخريطة -->
+        <div class="col-md-8 col-12 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">الخريطة</h5>
+                    <div id="map" class="map-container">
+                        <img src="../rental-images/map-image2.jpg" alt="Map Placeholder" class="map-placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بطاقة التفاصيل -->
+        <div class="col-md-4 col-12">
+            <div class="card h-100 details-container">
+                <div class="card-body">
+                    <h5 class="card-title">تفاصيل الشقة</h5>
+                    <p>عدد الغرف: 2</p>
+                    <p>السعر: 3000 جنيه</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 30.0444, lng: 31.2357 }, // إحداثيات القاهرة
+            zoom: 12,
+        });
+
+        const marker = new google.maps.Marker({
+            position: { lat: 30.0444, lng: 31.2357 },
+            map: map,
+            title: "شقة للإيجار",
+        });
+
+        marker.addListener("click", () => {
+            document.getElementById("details").innerHTML = "<strong>تفاصيل الشقة:</strong><br>عدد الغرف: 2<br>السعر: 3000 جنيه";
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+</body>
+</html>

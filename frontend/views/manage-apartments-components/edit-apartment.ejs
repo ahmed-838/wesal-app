@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل شقة</title>
+    <link rel="stylesheet" href="/css/manage-apartments/edit-apartment.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand mx-auto" href="#">وِصــــال</a>
+            <a class="navbar-brand mx-auto" href="#">صفحة الادمن</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#listings">العروض</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">معلومات عنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>تعديل شقة موجودة</h2>
+        <form action="/admin/apartments/edit" method="POST">
+            <div class="form-group">
+                <label for="apartmentId">معرف الشقة:</label>
+                <input type="text" id="apartmentId" name="apartmentId" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="newTitle">عنوان الشقة الجديد:</label>
+                <input type="text" id="newTitle" name="newTitle" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newLocation">الموقع الجديد:</label>
+                <input type="text" id="newLocation" name="newLocation" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newPrice">السعر الجديد:</label>
+                <input type="number" id="newPrice" name="newPrice" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newDescription">الوصف الجديد:</label>
+                <textarea id="newDescription" name="newDescription" class="form-control" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">تعديل الشقة</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+    </footer>
+</body>
+</html>

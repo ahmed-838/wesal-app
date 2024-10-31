@@ -1,0 +1,26 @@
+<style>
+    #image-container {
+        width: 100%; /* اجعل الحاوية تأخذ كامل عرض الكونتينر */
+        height: 400px; /* يمكنك تغيير هذا الارتفاع حسب ما تراه مناسباً */
+        overflow: hidden; /* لإخفاء أي جزء من الصورة يخرج عن حدود الحاوية */
+        position: relative; /* لجعل الصور تتداخل بشكل مناسب */
+    }
+
+    .listing-image {
+        width: 100%; /* اجعل الصورة تأخذ كامل عرض الحاوية */
+        height: auto; /* احفظ نسبة العرض إلى الارتفاع */
+        display: none; /* اجعلها مخفية بشكل افتراضي */
+        position: absolute; /* لجعل الصور تتداخل فوق بعضها البعض */
+        top: 0; /* اجعلها تبدأ من أعلى */
+        left: 0; /* اجعلها تبدأ من اليسار */
+        object-fit: contain; /* اجعل الصورة تتناسب مع حجم الحاوية دون الزوم */
+    }
+</style>
+
+<div class="details-container">
+    <h3>تفاصيل الشقة</h3>
+    <div id="image-container">
+        ${imagesHtml} <!-- هنا يتم إضافة الصور -->
+    </div>
+    <div id="details"></div>
+</div>

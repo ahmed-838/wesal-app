@@ -1,0 +1,12 @@
+# تجاهل ملفات النظام والمجلدات غير الضرورية
+node_modules
+npm-debug.log
+Dockerfile
+.dockerignore
+
+# تجاهل أي ملفات أو مجلدات لا تحتاجها في الصورة
+*.log
+*.tmp
+*.swp
+*.bak
+*.old

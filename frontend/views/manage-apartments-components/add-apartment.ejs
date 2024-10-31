@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="stylesheet" href="/css/manage-apartments/add-apartment.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة شقة جديدة</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>إضافة شقة جديدة</h2>       
+        <form action="/admin/apartments" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>نوع الوحدة:</label><br>
+                <input type="radio" id="apartment" name="type" value="شقة" required>
+                <label for="apartment">شقة</label><br>
+                <input type="radio" id="room" name="type" value="غرفة">
+                <label for="room">غرفة</label><br>
+                <input type="radio" id="bed" name="type" value="سرير">
+                <label for="bed">سرير</label><br>
+            </div>
+            <div class="form-group">
+                <label for="title">عنوان الشقة:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price">السعر:</label>
+                <input type="number" id="price" name="price" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="images">تحميل الصور:</label>
+                <input type="file" id="images" name="images" class="form-control" multiple accept="image/*" onchange="previewImages(event)">
+            </div>
+            
+            <div id="image-preview"></div> <!-- عنصر لإظهار معاينة الصور -->
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <div class="form-group">
+                <label for="latitude">خط العرض:</label>
+                <input type="number" step="any" id="latitude" name="latitude" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="longitude">خط الطول:</label>
+                <input type="number" step="any" id="longitude" name="longitude" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">إضافة الشقة</button>
+        </form>
+
+    </div>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+    </footer>
+    <script src="/js/manage-apartments/add-apartment.js"></script> <!-- ربط ملف JavaScript هنا -->
+</body>
+</html>
