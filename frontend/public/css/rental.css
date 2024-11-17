@@ -28,29 +28,31 @@
     box-sizing: border-box;
 }
 
+/* تنسيق بطاقة التفاصيل */
 .details-container .card-body {
     padding: 20px;
-    font-family: 'Roboto', sans-serif;
     background-color: #f0dfdf;
     border-radius: 8px;
     color: #333;
-    direction: rtl; /* إضافة هذه الخاصية لتحديد اتجاه النص من اليمين لليسار */
+    direction: rtl; /* تحديد اتجاه النص من اليمين لليسار */
 }
 
+/* تخصيص العنوان داخل بطاقة التفاصيل */
 .details-container .card-title {
     font-size: 24px;
     font-weight: bold;
     color: #007bff;
     margin-bottom: 10px;
-    text-align: right; /* تغيير محاذاة العنوان إلى اليمين */
+    text-align: right; /* محاذاة العنوان إلى اليمين */
 }
 
+/* تنسيق نص التفاصيل */
 .details-container #details {
     font-size: 16px;
     line-height: 1.7;
     color: #555;
     margin-top: 20px;
-    text-align: right; /* تغيير محاذاة النص إلى اليمين */
+    text-align: right; /* محاذاة النص إلى اليمين */
 }
 
 .details-container #details .price {
@@ -58,21 +60,21 @@
     font-weight: bold;
 }
 
-/* استخدام clearfix للتأكد من عدم وجود تسرب */
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
-    
+/* تصميم استجابة بحيث تكون الكاردات تحت بعضها في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .map-container,
+    .details-container {
+        width: 100%; /* عرض كامل للكارت */
+        height: 90vh; /* ارتفاع الكارد في الشاشات الصغيرة */
+        margin-bottom: 20px; /* فراغ بين الكاردات */
+    }
+
+    .row {
+        flex-direction: column; /* ترتيب العناصر رأسياً */
+    }
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap; /* السماح باللف عند الشاشات الصغيرة */
-    margin: 0;
-}
-
-/* تصميم كادر التصفية */
+/* تنسيق كادر التصفية */
 .filters-container {
     width: 100%;
     background-color: #f8f9fa;
@@ -87,6 +89,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* تنسيق خيارات التصفية */
 .filter-options {
     display: flex;
     justify-content: space-around;
@@ -103,31 +106,44 @@
     margin-right: 5px;
 }
 
-/* تصميم استجابة بحيث تكون الكاردات تحت بعضها في الشاشات الصغيرة */
-@media (max-width: 768px) {
-    .map-container,
-    .details-container {
-        width: 100%; /* عرض كامل للكارت */
-        height: 90vh; /* كل كارد يأخذ نصف الشاشة في الارتفاع */
-        margin-bottom: 20px; /* فراغ بين الكاردات */
-    }
-
-    .row {
-        flex-direction: column; /* ترتيب العناصر رأسياً */
-    }
-}
-
+/* تحسين المسافات داخل الصورة */
 #image-container {
     width: 100%;
-    height: 400px; /* تأكد من أن الارتفاع مناسب */
+    height: 200px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 10px;
 }
 
+/* تنسيق الصورة داخل الحاوية */
 .listing-image {
     width: 100%;
     height: 100%; /* تأكد من أن الصورة تمتد إلى كامل الحاوية */
     display: block;
-    object-fit: cover; /* التأكد من أن الصورة تغطي الحاوية بشكل مناسب */
+    object-fit: cover; /* تأكد من أن الصورة تغطي الحاوية بشكل مناسب */
 }
 
+/* تنسيق الأزرار */
+button.btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 100%; /* جعل الزر يأخذ العرض الكامل */
+}
+
+/* تحسين التنسيق للأقسام داخل البطاقة */
+.details-container .col-12 {
+    margin-bottom: 15px; /* إضافة مسافة بين الأقسام */
+}
+
+/* استخدام clearfix للتأكد من عدم وجود تسرب */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* السماح باللف عند الشاشات الصغيرة */
+    margin: 0;
+}

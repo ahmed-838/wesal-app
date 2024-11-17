@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // إعدادات الخريطة
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
+        maxZoom: 19
     }).addTo(map);
 
     // جلب البيانات من السيرفر
@@ -63,18 +62,29 @@ document.addEventListener("DOMContentLoaded", function() {
     function applyFilter() {
         const selectedFilter = document.querySelector('input[name="filter"]:checked').value; // الحصول على القيمة المختارة من الفلاتر
         console.log("Filter Selected:", selectedFilter);  // طباعة الفلتر الذي تم اختياره
-
-        markers.forEach(marker => {
+    
+        // فلترة الماركرات بناءً على الفلتر المحدد
+        const filteredListings = markers.filter(marker => {
             const listingType = marker.type;
-            console.log("Marker Type:", listingType);  // طباعة نوع الماركر
-
-            if (selectedFilter === "الكل" || selectedFilter === listingType) {
+            return selectedFilter === "الكل" || selectedFilter === listingType;
+        });
+    
+        // تحديث عدد النتائج
+        const filterCountElement = document.getElementById('filter-count');
+        if (filterCountElement) {
+            filterCountElement.innerHTML = `عدد النتائج: ${filteredListings.length}`;
+        }
+    
+        // إضافة الماركرات المصفاة للخريطة
+        markers.forEach(marker => {
+            if (filteredListings.includes(marker)) {
                 marker.addTo(map); // إضافة الماركر إذا كان يتوافق مع الفلتر
             } else {
                 map.removeLayer(marker); // إزالة الماركر إذا لم يتوافق مع الفلتر
             }
         });
     }
+    
 
     // دالة لعرض التفاصيل في الـ details card
     function displayListingDetails(listing) {

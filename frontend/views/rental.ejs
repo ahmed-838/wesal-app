@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="css/rental.css"> 
 </head>
+
 <body>
 
 <div>
@@ -31,6 +33,7 @@
                             <input type="radio" name="filter" value="الكل"> الكل
                         </label>
                     </div>
+                    <p id="filter-count">عدد النتائج: 0</p>
                 </div>
             </div>
         </div>
@@ -40,20 +43,35 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">الخريطة</h5>
-                    <div id="map"></div>
+                    <div id="map" style="height: 100%;"></div>
                 </div>
             </div>
         </div>
-        
+
+        <!-- بطاقة تفاصيل الشقة -->
         <div class="details-container">
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">تفاصيل الشقة</h5>
-                    <div id="details">
-                        اختر شقة من الخريطة لعرض التفاصيل هنا.
+
+                    <!-- تقسيم الأقسام عموديًا -->
+                    <div class="col-12 mb-3">
+                        <h6>تفاصيل الشقة</h6>
+                        <div id="details">
+                            اختر شقة من الخريطة لعرض التفاصيل هنا.
+                        </div>
                     </div>
-                    <div id="image-container">
-                        <!-- سيتم إضافة الصور هنا عبر الـ JavaScript -->
+
+                    <div class="col-12 mb-3">
+                        <h6>صور الشقة</h6>
+                        <div id="image-container">
+                            <!-- سيتم إضافة الصور هنا عبر الـ JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <h6>احجز الآن</h6>
+                        <button class="btn btn-primary">حجز</button>
                     </div>
                 </div>
             </div>
@@ -64,4 +82,5 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="js/rental.js"></script> 
 </body>
+
 </html>
