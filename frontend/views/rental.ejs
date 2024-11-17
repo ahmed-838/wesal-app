@@ -12,6 +12,29 @@
 
 <div>
     <div class="row">
+        <!-- بطاقة الفلاتر -->
+        <div class="filters-container">
+            <div class="card filter-card">
+                <div class="card-body">
+                    <h5 class="card-title">تصفية النتائج</h5>
+                    <div class="filter-options">
+                        <label>
+                            <input type="radio" name="filter" value="شقة" checked> شقة
+                        </label>
+                        <label>
+                            <input type="radio" name="filter" value="غرفة"> غرفة
+                        </label>
+                        <label>
+                            <input type="radio" name="filter" value="سرير"> سرير
+                        </label>
+                        <label>
+                            <input type="radio" name="filter" value="الكل"> الكل
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- بطاقة الخريطة -->
         <div class="map-container">
             <div class="card h-100">
@@ -26,7 +49,12 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">تفاصيل الشقة</h5>
-                    <div id="details">اختر شقة من الخريطة لعرض التفاصيل هنا.</div>
+                    <div id="details">
+                        اختر شقة من الخريطة لعرض التفاصيل هنا.
+                    </div>
+                    <div id="image-container">
+                        <!-- سيتم إضافة الصور هنا عبر الـ JavaScript -->
+                    </div>
                 </div>
             </div>
         </div>

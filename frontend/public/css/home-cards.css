@@ -1,0 +1,86 @@
+/* إعدادات عامة */
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* لون خلفية لطيف */
+}
+
+/* تنسيق الحاوية */
+.container {
+    max-width: 1400px; /* زيادة العرض */
+    margin: 0 auto; /* تمركز الحاوية */
+    padding: 20px; /* مسافة داخلية */
+}
+
+/* تنسيق الكروت */
+.card {
+    border: 1px solid #ddd; /* إطار خفيف */
+    border-radius: 12px; /* زوايا مستديرة أكثر */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* تعزيز الظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* خلفية الكروت */
+    overflow: hidden; /* لمنع العناصر من الخروج خارج الكارت */
+    margin: 15px 0; /* مسافة بين الكروت */
+    width: 90%; /* زيادة عرض الكروت */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* تحريك الكرت عند التمرير */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* تعزيز الظل عند التمرير */
+}
+
+.card-body {
+    padding: 20px; /* زيادة المسافة الداخلية */
+    text-align: center; /* توسيط النصوص */
+}
+
+.card-title {
+    font-size: 1.5rem; /* تكبير العنوان */
+    font-weight: bold;
+    margin-bottom: 20px; /* مسافة أكبر بين العنوان والمحتوى */
+    color: #333;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 300px; /* زيادة ارتفاع الصور */
+    object-fit: cover; /* تعديل حجم الصورة لتناسب الإطار */
+    border-bottom: 1px solid #ddd; /* خط فاصل بين الصورة والمحتوى */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 15px 20px; /* زيادة حجم الأزرار */
+    font-size: 1.2rem; /* تكبير النص في الأزرار */
+    font-weight: bold;
+    color: #fff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* إزالة الخط السفلي من الروابط */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* لون أغمق عند التمرير */
+}
+
+/* التحكم في الاستجابة */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.3rem; /* تكبير العنوان على الشاشات الصغيرة */
+    }
+
+    .card {
+        margin-bottom: 30px; /* مسافة بين الكروت على الشاشات الصغيرة */
+        width: 100%; /* جعل الكروت تأخذ العرض الكامل */
+    }
+
+    .card-img-top {
+        height: 250px; /* تصغير ارتفاع الصورة على الشاشات الصغيرة */
+    }
+
+    .btn-primary {
+        font-size: 1rem; /* تصغير الأزرار على الشاشات الصغيرة */
+    }
+}

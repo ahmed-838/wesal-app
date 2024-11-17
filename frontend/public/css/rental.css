@@ -9,25 +9,53 @@
     margin: 0; /* إزالة الهوامش */
     padding: 0; /* إزالة الحشوات */
     height: 100%; /* التأكد من ملء الكارد */
+    width: 100%;
 }
 
 /* تخصيص عرض وارتفاع الكاردات */
 .map-container {
     width: 60%; /* 60% للخريطة */
     height: 100vh; /* ملء كامل ارتفاع الشاشة */
-    float: left;
+    display: flex;
+    justify-content: center; /* موازاة الخريطة إلى المنتصف */
+    align-items: center;
 }
 
 .details-container {
     width: 40%; /* 40% للتفاصيل */
     height: 100vh; /* ملء كامل ارتفاع الشاشة */
-    float: left;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
-/* تنسيق داخل كارد التفاصيل */
 .details-container .card-body {
-    background-color: #a1c2c7; /* لون الخلفية */
-     border-radius: 8px; /* زوايا مستديرة */
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0dfdf;
+    border-radius: 8px;
+    color: #333;
+    direction: rtl; /* إضافة هذه الخاصية لتحديد اتجاه النص من اليمين لليسار */
+}
+
+.details-container .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+    text-align: right; /* تغيير محاذاة العنوان إلى اليمين */
+}
+
+.details-container #details {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-top: 20px;
+    text-align: right; /* تغيير محاذاة النص إلى اليمين */
+}
+
+.details-container #details .price {
+    color: #e91e63;
+    font-weight: bold;
 }
 
 /* استخدام clearfix للتأكد من عدم وجود تسرب */
@@ -37,35 +65,69 @@
     clear: both;
     
 }
-.row {
 
+.row {
+    display: flex;
+    flex-wrap: wrap; /* السماح باللف عند الشاشات الصغيرة */
     margin: 0;
 }
-#image-container {
-    width: 100%; /* اجعل الحاوية تأخذ كامل عرض الكونتينر */
-    height: 400px; /* يمكنك تغيير هذا الارتفاع حسب ما تراه مناسباً */
-    overflow: hidden; /* لإخفاء أي جزء من الصورة يخرج عن حدود الحاوية */
-    position: relative; /* لجعل الصور تتداخل بشكل مناسب */
+
+/* تصميم كادر التصفية */
+.filters-container {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.listing-image {
-    width: 100%; /* اجعل الصورة تأخذ كامل عرض الحاوية */
-    height: auto; /* احفظ نسبة العرض إلى الارتفاع */
-    display: none; /* اجعلها مخفية بشكل افتراضي */
-    position: absolute; /* لجعل الصور تتداخل فوق بعضها البعض */
-    top: 0; /* اجعلها تبدأ من أعلى */
-    left: 0; /* اجعلها تبدأ من اليسار */
-    object-fit: contain; /* اجعل الصورة تتناسب مع حجم الحاوية دون الزوم */
+.filter-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.filter-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-options label {
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.filter-options input {
+    margin-right: 5px;
+}
 
 /* تصميم استجابة بحيث تكون الكاردات تحت بعضها في الشاشات الصغيرة */
 @media (max-width: 768px) {
     .map-container,
     .details-container {
         width: 100%; /* عرض كامل للكارت */
-        float: none; /* إلغاء الخاصية العائمة */
         height: 90vh; /* كل كارد يأخذ نصف الشاشة في الارتفاع */
         margin-bottom: 20px; /* فراغ بين الكاردات */
     }
+
+    .row {
+        flex-direction: column; /* ترتيب العناصر رأسياً */
+    }
 }
+
+#image-container {
+    width: 100%;
+    height: 400px; /* تأكد من أن الارتفاع مناسب */
+    overflow: hidden;
+    position: relative;
+}
+
+.listing-image {
+    width: 100%;
+    height: 100%; /* تأكد من أن الصورة تمتد إلى كامل الحاوية */
+    display: block;
+    object-fit: cover; /* التأكد من أن الصورة تغطي الحاوية بشكل مناسب */
+}
+
