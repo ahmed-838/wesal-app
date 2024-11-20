@@ -1,13 +1,74 @@
 body {
     background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    direction: rtl; /* جعل الاتجاه من اليمين إلى اليسار */
+    text-align: right; /* لضبط النصوص للجهة اليمنى */
 }
 
 .card {
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 50px; /* زيادة المسافة العلوية */
+    padding: 30px; /* زيادة التباعد الداخلي */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ظلال أكثر وضوحًا */
+    border-radius: 12px; /* زوايا مستديرة */
+    border: 1px solid #ddd; /* إضافة حد أنيق */
+    max-width: 700px; /* زيادة عرض البطاقة */
+    margin: 50px auto; /* جعل البطاقة في المنتصف */
+    background-color: #ffffff;
 }
 
 .card-header {
     background-color: #007bff;
     color: white;
+    text-align: center; /* لضمان أن العنوان يكون في المنتصف */
+    font-size: 1.5em; /* زيادة حجم النص */
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 12px 12px 0 0; /* زوايا علوية مستديرة */
 }
+
+label {
+    display: block;
+    margin-bottom: 10px; /* زيادة المسافة بين الحقول */
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px; /* زيادة حجم الحقول */
+    margin-bottom: 20px; /* زيادة المسافة بين الحقول */
+    border: 1px solid #ddd;
+    border-radius: 6px; /* زوايا مستديرة للحقول */
+    font-size: 1em; /* زيادة حجم النص داخل الحقول */
+    text-align: right; /* لضبط النصوص داخل الحقول على اليمين */
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px; /* زيادة ارتفاع الزر */
+    font-size: 1.2em; /* زيادة حجم النص */
+    font-weight: bold;
+    border-radius: 6px; /* زوايا مستديرة للزر */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* لون داكن عند التمرير */
+    transform: scale(1.05); /* تكبير بسيط عند التمرير */
+}
+
+.container {
+    margin: 40px auto;
+    max-width: 800px; /* زيادة عرض الحاوية */
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+

@@ -22,15 +22,18 @@ const homeRoutes = require('./routes/homeRoutes');
 const rentalRoutes = require('./routes/rentalRoutes');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
+
 
 app.use('/', homeRoutes);
 app.use('/rental', rentalRoutes);
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
+app.use('/booking', bookingRoutes);
 
 
 
 const port = process.env.PORT || 3001;
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
 });

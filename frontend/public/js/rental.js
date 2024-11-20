@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const map = L.map('map').setView([30.0444, 31.2357], 12); // مركز الخريطة على القاهرة
     const markers = []; // مصفوفة لتخزين الماركرات
+    
 
     // تحديد الفلتر الافتراضي ليكون "الكل"
     document.querySelector('input[name="filter"][value="الكل"]').checked = true;
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // إضافة حدث عند تغيير الاختيار في الفلاتر
     document.querySelectorAll('input[name="filter"]').forEach(radio => {
         radio.addEventListener('change', function() {
             console.log("Filter Changed to:", this.value);
@@ -58,64 +58,80 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // دالة لتصفية الماركرات بناءً على الفلتر المختار
     function applyFilter() {
-        const selectedFilter = document.querySelector('input[name="filter"]:checked').value; // الحصول على القيمة المختارة من الفلاتر
-        console.log("Filter Selected:", selectedFilter);  // طباعة الفلتر الذي تم اختياره
+        const selectedFilter = document.querySelector('input[name="filter"]:checked').value; 
+        console.log("Filter Selected:", selectedFilter); 
     
-        // فلترة الماركرات بناءً على الفلتر المحدد
         const filteredListings = markers.filter(marker => {
             const listingType = marker.type;
             return selectedFilter === "الكل" || selectedFilter === listingType;
         });
     
-        // تحديث عدد النتائج
         const filterCountElement = document.getElementById('filter-count');
         if (filterCountElement) {
             filterCountElement.innerHTML = `عدد النتائج: ${filteredListings.length}`;
         }
     
-        // إضافة الماركرات المصفاة للخريطة
         markers.forEach(marker => {
             if (filteredListings.includes(marker)) {
-                marker.addTo(map); // إضافة الماركر إذا كان يتوافق مع الفلتر
+                marker.addTo(map); 
             } else {
-                map.removeLayer(marker); // إزالة الماركر إذا لم يتوافق مع الفلتر
+                map.removeLayer(marker); 
             }
         });
     }
     
 
-    // دالة لعرض التفاصيل في الـ details card
     function displayListingDetails(listing) {
         const detailsContainer = document.getElementById('details');
         const imageContainer = document.getElementById('image-container');
     
-        // Debugging: log the containers
-        console.log('Details container:', detailsContainer);
-        console.log('Image container:', imageContainer);
-    
-        // Check if the containers are found
         if (!detailsContainer || !imageContainer) {
             console.error('One or both containers are missing.');
             return;
         }
-
-        // عرض الصور الحقيقية
-        const imagesHtml = listing.images.map(image => {
-            const imageUrl = `http://localhost:3001/${image}`;  // رابط الصورة الصحيح
-            return `<img src="${imageUrl}" class="listing-image" style="width:100%; height:auto;" />`;
-        }).join('');
-
-        imageContainer.innerHTML = imagesHtml; // عرض الصور في الـ container
-
-        // عرض التفاصيل الأخرى
+    
+        // إعداد الـ Swiper لعرض الصور
+        const imagesHtml = `
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    ${listing.images.map(image => {
+                        const imageUrl = `http://localhost:3001/${image}`;
+                        return `<div class="swiper-slide"><img src="${imageUrl}" class="listing-image" style="width:100%; height:auto;" /></div>`;
+                    }).join('')}
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        `;
+        imageContainer.innerHTML = imagesHtml;
+    
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+    
+        // عرض التفاصيل الأخرى مع زر "احجز الآن"
         detailsContainer.innerHTML = `
-            <b> <strong>العنوان:</strong>  ${listing.title}</b><br>
+            <b><strong>العنوان:</strong> ${listing.title}</b><br>
             <strong>نوع المسكن:</strong> ${listing.type}<br>
             <strong>السعر:</strong> ${listing.price} جنيه<br>
+            <a href="/booking/${listing._id}" id="book-now" class="btn btn-primary" style="margin-top: 20px;">احجز الآن</a>
         `;
     }
+    
+    
+    
 
     
     fetchListings(); // جلب البيانات

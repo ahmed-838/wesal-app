@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Apartment = require('../models/Apartment'); 
 
-router.get('/', (req, res) => {
-    res.render('rental');
+
+router.get('/', async (req, res) => {
+    res.render('rental.ejs');
 });
+
+
 
 router.get('/components/navbar', (req, res) => {
     res.render('rental-components/navbar');

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز الشقة</title>
+    <link rel="stylesheet" href="/css/booking.css"> <!-- تضمين ملف CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet"> <!-- تضمين Swiper CSS -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">الصفحة الرئيسية</a></li>
+                <li><a href="/about">عن الموقع</a></li>
+                <li><a href="/contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- تفاصيل الشقة -->
+<!-- تفاصيل الشقة -->
+<section class="apartment-details">
+    <div class="image-gallery">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- صور الشقة -->
+                <% apartment.images.forEach(image => { %>
+                    <div class="swiper-slide">
+                        <img src="/<%= image %>" alt="صورة الشقة">
+                    </div>
+                <% }) %>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="details">
+        <h2 class="apartment-title"><%= apartment.title %></h2>
+        <p><strong>نوع المسكن:</strong> <%= apartment.type %></p>
+        <p><strong>السعر:</strong> <%= apartment.price %> جنيه شهريًا</p>
+    </div>
+</section>
+
+
+
+    <!-- نموذج الحجز -->
+    <section class="booking-form">
+        <h3>احجز الآن</h3>
+        <form action="/submit-booking" method="POST">
+
+            <label for="special-requests">إرسال ملاحظات إضافية:</label>
+            <textarea id="special-requests" name="special-requests"></textarea>
+
+            <button type="submit" class="btn-book">احجز الآن</button>
+        </form>
+    </section>
+
+    <!-- الشروط والأحكام
+    <section class="terms-and-conditions">
+        <p>يرجى قراءة <a href="/terms">الشروط والأحكام</a> قبل تأكيد الحجز.</p>
+    </section> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> 
+    <script src="/js/booking.js"></script> <!-- تضمين ملف JS -->
+</body>
+</html>
